@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:show]
+
   def list
     @movies = Movie.all
     render "index"
